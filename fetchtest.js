@@ -1,7 +1,7 @@
-const displayName = document.querySelector("#Name");
+const displayName = document.getElementById("Name");
 const displayPrice = document.getElementById("Price");
 const displayImage = document.getElementById("Image");
-const displayDescription = document.querySelector("#Description");
+const displayDescription = document.getElementById("Description");
 
 const promise01 = fetch("http://localhost:3000/api/furniture/");
 promise01
@@ -9,14 +9,17 @@ promise01
     return getData.json();
   })
   .then((consoleData) => {
-    console.log(consoleData[3].description);
-    let txtName = consoleData[3].name;
-    let txtPrice = consoleData[3].price;
-    let txtImage = consoleData[3].imageUrl;
-    let txtDescription = consoleData[3].description;
+    for (let i = 0; i < consoleData.length; i++) {
+      console.log([i]);
+    }
+
+    let txtName = consoleData[1].name;
+    let txtPrice = consoleData[1].price;
+    let txtImage = consoleData[1].imageUrl;
+    let txtDescription = consoleData[1].description;
 
     displayName.innerHTML = txtName;
     displayPrice.innerHTML = txtPrice;
-    displayImage.innerHTML = txtImage;
     displayDescription.innerHTML = txtDescription;
+    displayImage.src = txtImage;
   });
