@@ -14,27 +14,134 @@
     <link rel="stylesheet" href="css/style3.css" />
   </head>
   <body>
+    <div class="card">
+      <div class="row">
+        <div class="col-md-8 cart">
+          <div class="title">
+            <div class="row">
+              <div class="col">
+                <h4><b>Votre panier</b></h4>
+              </div>
+              <div class="col align-self-center text-right text-muted">
+                X articles
+              </div>
+            </div>
+          </div>
+          <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Nom du produit</div>
+              </div>
+              <div class="col">
+                <a href="#">-</a><a href="#" class="border">1</a
+                ><a href="#">+</a>
+              </div>
+              <div class="col">
+                &euro; 44.00 <span class="close">&#10005;</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+              <div class="col">
+                <a href="#">-</a><a href="#" class="border">1</a
+                ><a href="#">+</a>
+              </div>
+              <div class="col">
+                &euro; 44.00 <span class="close">&#10005;</span>
+              </div>
+            </div>
+          </div>
+          <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+              <div class="col">
+                <a href="#">-</a><a href="#" class="border">1</a
+                ><a href="#">+</a>
+              </div>
+              <div class="col">
+                &euro; 44.00 <span class="close">&#10005;</span>
+              </div>
+            </div>
+          </div>
+          <div class="back-to-shop">
+            <a href="#">&leftarrow;</a
+            ><span class="text-muted">Back to shop</span>
+          </div>
+        </div>
+        <div class="col-md-4 summary">
+          <div>
+            <h5><b>Summary</b></h5>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="col" style="padding-left: 0">ITEMS 3</div>
+            <div class="col text-right">&euro; 132.00</div>
+          </div>
+          <form>
+            <p>SHIPPING</p>
+            <select>
+              <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+            </select>
+            <p>GIVE CODE</p>
+            <input id="code" placeholder="Enter your code" />
+          </form>
+          <div
+            class="row"
+            style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+          >
+            <div class="col">TOTAL PRICE</div>
+            <div class="col text-right">&euro; 137.00</div>
+          </div>
+          <button class="btn">CHECKOUT</button>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <form class="row g-3">
         <div class="col-md-6">
-          <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" />
+          <label for="inputFirstName" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputFirstName"
+            required
+            pattern="[a-zA-Z]{1,100}"
+          />
         </div>
         <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Mot de passe</label>
-          <input type="password" class="form-control" id="inputPassword4" />
+          <label for="inputLastName" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="inputLastName" required />
         </div>
         <div class="col-12">
-          <label for="inputAddress" class="form-label">Adresse</label>
+          <label for="inputAddress" class="form-label">Address</label>
           <input
             type="text"
             class="form-control"
             id="inputAddress"
             placeholder="N° et Nom de rue"
+            required
+            pattern=""
           />
         </div>
         <div class="col-12">
-          <label for="inputAddress2" class="form-label">Adresse suite</label>
+          <label for="inputAddress2" class="form-label">Address 2</label>
           <input
             type="text"
             class="form-control"
@@ -42,36 +149,22 @@
             placeholder="N° d'entrée, étage, porte"
           />
         </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label" />Code Postal</label>
-          <input type="text" class="form-control" id="inputZip" />
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">City</label>
+          <input type="text" class="form-control" id="inputCity" required />
         </div>
         <div class="col-md-6">
-          <label for="inputCity" class="form-label">Ville</label>
-          <input type="text" class="form-control" id="inputCity" />
-        </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">Pays</label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" />
-            <label class="form-check-label" for="gridCheck">
-              Vérifier les données
-            </label>
-          </div>
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" required />
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-primary">
-            Envoyer les données
+            Validez votre commande !
           </button>
         </div>
       </form>
     </div>
+    <script src="validityform.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
