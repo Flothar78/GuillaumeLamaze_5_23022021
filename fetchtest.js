@@ -10,7 +10,7 @@ promise01
   })
   .then((consoleData) => {
     for (let i = 0; i < consoleData.length; i++) {
-      console.log([i]);
+      console.log(consoleData[i]);
     }
 
     let txtName = consoleData[1].name;
