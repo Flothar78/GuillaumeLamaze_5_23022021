@@ -30,7 +30,7 @@
           <div class="row border-top border-bottom">
             <div class="row main align-items-center">
               <div class="col-2">
-                <img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg" />
+                <img class="img-fluid" src="#" />
               </div>
               <div class="col">
                 <div class="row text-muted">Nom du produit</div>
@@ -47,7 +47,7 @@
           <div class="row">
             <div class="row main align-items-center">
               <div class="col-2">
-                <img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg" />
+                <img class="img-fluid" src="#" />
               </div>
               <div class="col">
                 <div class="row text-muted">Shirt</div>
@@ -65,7 +65,7 @@
           <div class="row border-top border-bottom">
             <div class="row main align-items-center">
               <div class="col-2">
-                <img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg" />
+                <img class="img-fluid" src="#" />
               </div>
               <div class="col">
                 <div class="row text-muted">Shirt</div>
@@ -137,7 +137,7 @@
             id="inputAddress"
             placeholder="N° et Nom de rue"
             required
-            pattern=""
+            pattern="[a-zA-Z0-9 ',/]{1,100}"
           />
         </div>
         <div class="col-12">
@@ -147,6 +147,7 @@
             class="form-control"
             id="inputAddress2"
             placeholder="N° d'entrée, étage, porte"
+            pattern="[a-zA-Z0-9 ',/]{1,100}"
           />
         </div>
         <div class="col-md-6">
@@ -164,7 +165,6 @@
         </div>
       </form>
     </div>
-    <script src="validityform.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
