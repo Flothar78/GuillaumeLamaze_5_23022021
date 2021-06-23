@@ -6,9 +6,11 @@ api
   })
   .then((displayData) => {
     for (var i = 0; i < displayData.length; i++) {
-      var json_data = JSON.stringify(displayData[i]);
-      document.writeln(displayData);
-      console.log(displayData);
+      console.log(displayData[i]);
+      var newDiv = document.createElement("div");
+      var section = document.getElementById("newDivJs");
+      section.append(newDiv);
+      newDiv.textContent = "test texte integration via javascript";
     }
   })
   .catch((error) => {
