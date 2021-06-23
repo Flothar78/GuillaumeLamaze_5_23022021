@@ -6,11 +6,39 @@ api
   })
   .then((displayData) => {
     for (var i = 0; i < displayData.length; i++) {
-      console.log(displayData[i]);
       var newDiv = document.createElement("div");
-      var section = document.getElementById("newDivJs");
+      newDiv.className = "container";
+      var section = document.getElementById("section");
       section.append(newDiv);
-      newDiv.textContent = "test texte integration via javascript";
+      newDiv.innerHTML =
+        '<div class="flexDiv">' +
+        '<img class="card-img-top"' +
+        "src=" +
+        displayData[i].imageUrl +
+        " alt=" +
+        displayData[i].name +
+        "/>" +
+        '<div class="card-body p-4">' +
+        '<div class="text-center">' +
+        "<div>" +
+        '<h5 class="fw-bolder">' +
+        displayData[i].name +
+        "</h5>" +
+        "</div>" +
+        displayData[i].price / 100 +
+        "€" +
+        "</div>" +
+        "</div>" +
+        '<div class="card-footer p-4 pt-0 border-top-0 bg-transparent">' +
+        '<div class="text-center">' +
+        '<button class="ToPageProducts" type="button">' +
+        '<a href="products.html?id=' +
+        displayData[i]._id +
+        '"> Voir le produit</a>' +
+        "</button>" +
+        "</div>" +
+        "</div>" +
+        "</div>";
     }
   })
   .catch((error) => {

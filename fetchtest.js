@@ -14,7 +14,7 @@ promise01
   })
   .then((apiFurniture) => {
     let txtName = apiFurniture.name;
-    let txtPrice = apiFurniture.price;
+    let txtPrice = apiFurniture.price / 100 + "€";
     let txtImage = apiFurniture.imageUrl;
     let txtDescription = apiFurniture.description;
     let txtVarnish = apiFurniture.varnish;
