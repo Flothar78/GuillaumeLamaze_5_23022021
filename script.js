@@ -15,8 +15,7 @@ api
         '<img class="card-img-top"' +
         "src=" +
         displayData[i].imageUrl +
-        " alt=" +
-        displayData[i].name +
+        ' max-width = "200" max-height = "200" ' +
         "/>" +
         '<div class="card-body p-4">' +
         '<div class="text-center">' +

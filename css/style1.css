@@ -68,6 +68,26 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+section {
+  display: flex;
+}
+
+button {
+  text-decoration: none;
+  border-radius: 10px 100px / 120px;
+}
+
+a {
+  color: #d78232;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #9a61e1;
+  font-weight: 600;
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
@@ -236,14 +256,6 @@ sup {
   top: -0.5em;
 }
 
-a {
-  color: #0d6efd;
-  text-decoration: underline;
-}
-a:hover {
-  color: #0a58ca;
-}
-
 a:not([href]):not([class]),
 a:not([href]):not([class]):hover {
   color: inherit;
@@ -334,10 +346,6 @@ th {
 
 label {
   display: inline-block;
-}
-
-button {
-  border-radius: 0;
 }
 
 button:focus:not(:focus-visible) {
