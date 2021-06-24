@@ -24,18 +24,6 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#!">Orinoco</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <form class="d-flex">
             <button class="btn btn-outline-dark" type="submit">
               <i class="bi-cart-fill me-1"></i>
@@ -64,13 +52,14 @@
               <span id="Price"></span>
             </div>
             <p>
-              <label for="options">Quel vernis préfèrez-vous?</label><br />
-              <select name="Varnish" id="Varnish">
-                <option value="[0]">[0]</option>
-                <option value="[1]">[1]</option>
-                <option value="[2]">[2]</option>
-                <option value="[3]">[3]</option>
-              </select>
+              <label for="options">Quelle couleur de vernis vous inspire?</label><br><br>
+              <select name="varnish" id="Varnish">
+                <option value="">Cliquez et affichez les options</option>
+                <option value="[0]">[i]</option>
+                <option value="[1]">[i]</option>
+                <option value="[2]">[i]</option>
+                <option value="[3]">[i]</option>
+              </select><br><br><br>
             </p>
             <p class="lead" id="Description"></p>
             <div class="d-flex">
@@ -94,6 +83,6 @@
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="fetchtest.js"></script>
+    <script src="products.js"></script>
   </body>
 </html>
