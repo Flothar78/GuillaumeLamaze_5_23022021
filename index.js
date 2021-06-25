@@ -7,7 +7,7 @@ api
   .then((displayData) => {
     for (var i = 0; i < displayData.length; i++) {
       var newDiv = document.createElement("div");
-      newDiv.className = "container";
+      newDiv.className = "items";
       var section = document.getElementById("section");
       section.append(newDiv);
       newDiv.innerHTML =
