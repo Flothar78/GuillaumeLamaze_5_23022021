@@ -80,6 +80,7 @@ button:hover {
   border-color: #9a61e1;
   background-color: white;
 }
+
 button:hover > a {
   color: #9a61e1;
 }

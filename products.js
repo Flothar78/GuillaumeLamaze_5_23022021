@@ -1,3 +1,4 @@
+
 var url = new URL(window.location.href);
 const id = url.searchParams.get("id");
 
@@ -28,8 +29,17 @@ promise01
     for (var i = 0; i < txtVarnish.length; i++) {
       var varnishName = txtVarnish[i];
       var option = document.createElement("option");
+      displayVarnish.appendChild(option);
       option.textContent = varnishName;
       option.value = varnishName;
-      displayVarnish.appendChild(option);
     }
+    const sentCart = document.getElementById("cartItem");
+    sentCart.addEventListener("click", (e) =>
+      console.log(txtName, txtPrice, txtVarnish, id));
+    localStorage.setItem('name', JSON.stringify(txtName));
+    localStorage.setItem('price', JSON.stringify(txtPrice));
+    localStorage.setItem('varnish', JSON.stringify(txtVarnish[i]));
+    localStorage.setItem('id', JSON.stringify(id));
   });
+
+
