@@ -34,12 +34,16 @@ promise01
       option.value = varnishName;
     }
     const sentCart = document.getElementById("cartItem");
-    sentCart.addEventListener("click", (e) =>
-      console.log(txtName, txtPrice, txtVarnish, id));
-    localStorage.setItem('name', JSON.stringify(txtName));
-    localStorage.setItem('price', JSON.stringify(txtPrice));
-    localStorage.setItem('varnish', JSON.stringify(txtVarnish[i]));
-    localStorage.setItem('id', JSON.stringify(id));
-  });
+    let cartName = () => localStorage.setItem('name', JSON.stringify(txtName));
+    let cartPrice = () => localStorage.setItem('price', JSON.stringify(txtPrice));
+    let cartId = () => localStorage.setItem('id', JSON.stringify(id));
+
+    sentCart.addEventListener("click", (e) => {
+      cartName();
+      cartPrice();
+      cartId();
+    });
 
 
+  }
+  )

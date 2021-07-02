@@ -46,6 +46,7 @@ a {
 
 .summary {
   background-color: #ddd;
+  width: 100%;
   border-top-right-radius: 1rem;
   border-bottom-right-radius: 1rem;
   padding: 4vh;
