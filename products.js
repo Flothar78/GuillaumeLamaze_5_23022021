@@ -25,7 +25,10 @@ promise01
     displayDescription.innerHTML = txtDescription;
     displayImage.src = txtImage;
     displayVarnish.innerHTML = txtVarnish;
-
+    const sentCart = document.getElementById("cartItem");
+    sentCart.addEventListener("click", (e) => {
+      addCart(apiFurniture);
+    });
     for (var i = 0; i < txtVarnish.length; i++) {
       var varnishName = txtVarnish[i];
       var option = document.createElement("option");
@@ -33,17 +36,13 @@ promise01
       option.textContent = varnishName;
       option.value = varnishName;
     }
-    const sentCart = document.getElementById("cartItem");
-    let cartName = () => localStorage.setItem('name', JSON.stringify(txtName));
-    let cartPrice = () => localStorage.setItem('price', JSON.stringify(txtPrice));
-    let cartId = () => localStorage.setItem('id', JSON.stringify(id));
 
-    sentCart.addEventListener("click", (e) => {
-      cartName();
-      cartPrice();
-      cartId();
-    });
-
-
+    /////////////// Mise en place du local storage au click du bouton Ajouter au panier ////////////////////////////////////////
   }
   )
+
+
+
+
+
+

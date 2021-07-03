@@ -1,5 +1,4 @@
 
-console.log(localStorage.getItem('name'));
 
 let nameProduct = JSON.parse(localStorage.getItem('name'));
 let nameCart = document.querySelector('.choiceName');
