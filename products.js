@@ -1,4 +1,3 @@
-
 var url = new URL(window.location.href);
 const id = url.searchParams.get("id");
 
@@ -25,10 +24,7 @@ promise01
     displayDescription.innerHTML = txtDescription;
     displayImage.src = txtImage;
     displayVarnish.innerHTML = txtVarnish;
-    const sentCart = document.getElementById("cartItem");
-    sentCart.addEventListener("click", (e) => {
-      addCart(apiFurniture);
-    });
+
     for (var i = 0; i < txtVarnish.length; i++) {
       var varnishName = txtVarnish[i];
       var option = document.createElement("option");
@@ -38,11 +34,32 @@ promise01
     }
 
     /////////////// Mise en place du local storage au click du bouton Ajouter au panier ////////////////////////////////////////
-  }
-  )
 
-
-
-
-
-
+    const sentCart = document.getElementById("cartItem");
+    sentCart.addEventListener("click", () => {
+      let addCart = JSON.parse(localStorage.getItem(apiFurniture._id));
+      if (addCart) {
+        localStorage.setItem(
+          apiFurniture._id,
+          JSON.stringify({
+            name: apiFurniture.name,
+            price: apiFurniture.price,
+            quantité: (addCart.quantity += 1),
+          })
+        );
+        console.log("c'est le if qui remporte la mise !!");
+      } else {
+        localStorage.setItem(
+          apiFurniture._id,
+          JSON.stringify({
+            name: apiFurniture.name,
+            price: apiFurniture.price,
+            quantité: 1,
+          })
+        );
+        console.log(
+          "C'est encore un militaire qui gagne une tringle à rideaux."
+        );
+      }
+    });
+  });

@@ -37,6 +37,6 @@ api
         "</div>";
     }
   })
-  .catch((error) => {
+  .catch(() => {
     console.log("Une erreur est survenue");
   });
