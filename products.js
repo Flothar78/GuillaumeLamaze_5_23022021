@@ -36,6 +36,7 @@ promise01
     /////////////// Mise en place du local storage au click du bouton Ajouter au panier ////////////////////////////////////////
 
     const sentCart = document.getElementById("cartItem");
+
     sentCart.addEventListener("click", () => {
       let addCart = JSON.parse(localStorage.getItem(apiFurniture._id));
       if (addCart) {
@@ -44,22 +45,20 @@ promise01
           JSON.stringify({
             name: apiFurniture.name,
             price: apiFurniture.price,
-            quantité: (addCart.quantity += 1),
+            quantity: (addCart.quantity += 1),
           })
         );
-        console.log("c'est le if qui remporte la mise !!");
+        console.log("if");
       } else {
         localStorage.setItem(
           apiFurniture._id,
           JSON.stringify({
             name: apiFurniture.name,
             price: apiFurniture.price,
-            quantité: 1,
+            quantity: 1,
           })
         );
-        console.log(
-          "C'est encore un militaire qui gagne une tringle à rideaux."
-        );
+        console.log("Else");
       }
     });
   });
