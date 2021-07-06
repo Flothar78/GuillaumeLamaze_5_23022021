@@ -23,6 +23,20 @@ a {
   border: transparent;
 }
 
+
+.carttitle {
+ border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+ padding: 2vh 0"
+}
+
+th {
+  font-size: 2em;
+}
+
+td {
+  font-size: 1.2em;
+}
+
 @media (max-width: 767px) {
   .card {
     margin: 3vh auto;
