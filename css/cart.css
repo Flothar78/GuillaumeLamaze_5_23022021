@@ -23,18 +23,29 @@ a {
   border: transparent;
 }
 
+.cart-form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 
-.carttitle {
+.cart-title {
  border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
  padding: 2vh 0"
 }
 
 th {
-  font-size: 2em;
+  font-size: 1.5em;
+  border-bottom: 3px solid rgb(226, 188, 188);
+  border-left: 1px solid rgb(226, 188, 188);
+  border-right: 1px solid rgb(226, 188, 188);
 }
 
 td {
   font-size: 1.2em;
+  border-collapse: separate;
+  border-left: 1px solid rgb(226, 188, 188);
+  border-right: 1px solid rgb(226, 188, 188);
 }
 
 @media (max-width: 767px) {

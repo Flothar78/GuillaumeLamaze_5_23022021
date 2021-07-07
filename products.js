@@ -41,7 +41,7 @@ promise01
       let addCart = JSON.parse(localStorage.getItem(apiFurniture._id));
       if (addCart) {
         localStorage.setItem(
-          apiFurniture._id,
+            apiFurniture._id,
           JSON.stringify({
             name: apiFurniture.name,
             price: apiFurniture.price,
@@ -51,14 +51,14 @@ promise01
         console.log("if");
       } else {
         localStorage.setItem(
-          apiFurniture._id,
+           apiFurniture._id,
           JSON.stringify({
             name: apiFurniture.name,
             price: apiFurniture.price,
             quantity: 1,
           })
         );
-        console.log("Else");
+        console.log("else");
       }
     });
   });
