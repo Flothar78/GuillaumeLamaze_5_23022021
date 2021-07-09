@@ -42,7 +42,7 @@ promise01
       if (addCart) {
         localStorage.setItem(
             apiFurniture._id,
-          JSON.stringify( {
+          JSON.stringify({
             name: apiFurniture.name,
             price: apiFurniture.price,
             quantity: (addCart.quantity += 1),

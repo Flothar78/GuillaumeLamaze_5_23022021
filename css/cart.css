@@ -34,6 +34,11 @@ a {
  padding: 2vh 0"
 }
 
+tr {
+  border-bottom: 1px solid rgb(226, 188, 188);
+  border-top: 1px solid rgb(226, 188, 188);
+}
+
 th {
   font-size: 1.5em;
   border-bottom: 3px solid rgb(226, 188, 188);

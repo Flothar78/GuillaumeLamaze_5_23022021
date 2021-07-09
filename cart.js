@@ -1,5 +1,5 @@
 
-
+let total = 0;
 
 
 
@@ -12,22 +12,36 @@ for (let i = 0 ; i < localStorage.length ; i++) {
    '<td class="choiceName"></td>' +
    '<td class="choicePrice"></td>' + 
    '<td class="choiceQuantity"></td>' +
+   '<td class="choiceCost"></td>' +
    '</tr>';    
     
-    let nameProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).name;
-    let nameCart = document.querySelectorAll('.choiceName')[i];
+    var nameProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).name;
+    var nameCart = document.querySelectorAll('.choiceName')[i];
     nameCart.innerHTML += nameProduct;  
 
-    let priceProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).price/100 +'€';
-    let priceCart = document.querySelectorAll('.choicePrice')[i];
+    var priceProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).price/100 ;
+    var priceCart = document.querySelectorAll('.choicePrice')[i];
     priceCart.innerHTML += priceProduct;
 
-    let quantityProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).quantity;
-    let quantityCart = document.querySelectorAll('.choiceQuantity')[i];
+    var quantityProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).quantity;
+    var quantityCart = document.querySelectorAll('.choiceQuantity')[i];
     quantityCart.innerHTML += quantityProduct;
 
+    var costCart = document.querySelectorAll('.choiceCost')[i];
+
+    costCart.innerHTML = priceCart.innerHTML * quantityCart.innerHTML;
+
+    var totalCost = document.querySelector('#totalCost');
+
+    var stringNumber = costCart.innerHTML;
+    var value = parseInt(stringNumber);
+    value = Number(stringNumber);
+    total += value;
     
-}
+}   
+
+
+    totalCost.innerHTML += total;
 
 
 
