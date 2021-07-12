@@ -1,5 +1,11 @@
+
+////// Récupération de la bonne ID depuis API via l'adresse URL de la page /////////////////
+
 var url = new URL(window.location.href);
 const id = url.searchParams.get("id");
+
+
+////// Affichage HTML des données de l'API selon ID ///////////////////////////////
 
 const displayName = document.getElementById("Name");
 const displayPrice = document.getElementById("Price");
@@ -25,6 +31,9 @@ promise01
     displayImage.src = txtImage;
     displayVarnish.innerHTML = txtVarnish;
 
+
+////// Boucle pour affichage des différents vernis en option ////////////////////////
+    
     for (var i = 0; i < txtVarnish.length; i++) {
       var varnishName = txtVarnish[i];
       var option = document.createElement("option");
@@ -33,11 +42,12 @@ promise01
       option.value = varnishName;
     }
 
-    /////////////// Mise en place du local storage au click du bouton Ajouter au panier ////////////////////////////////////////
+
+////// Mise en place du local storage en fonction du click du bouton Ajouter au panier ////////////////////////////////////////
 
     const sentCart = document.getElementById("cartItem");
 
-    sentCart.addEventListener("click", () => {
+    sentCart.onclick = function () {
       let addCart = JSON.parse(localStorage.getItem(apiFurniture._id));
       if (addCart) {
         localStorage.setItem(
@@ -48,7 +58,6 @@ promise01
             quantity: (addCart.quantity += 1),
           })
         );
-        console.log("if");
       } else {
         localStorage.setItem(
            apiFurniture._id,
@@ -58,7 +67,6 @@ promise01
             quantity: 1,
           })
         );
-        console.log("else");
       }
-    });
+    };
   });

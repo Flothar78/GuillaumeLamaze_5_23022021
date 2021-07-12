@@ -83,6 +83,7 @@ button:hover {
 
 button:hover > a {
   color: #9a61e1;
+  font-weight: 600;
 }
 
 a {
@@ -91,8 +92,15 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+#cartItem {
+  color: #d78232;
   font-weight: 600;
+  text-decoration: none;
+}
+
+#cartItem:hover {
+  font-weight: 600;
+  color: #9a61e1;
 }
 
 hr {

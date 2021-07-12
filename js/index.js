@@ -1,4 +1,10 @@
+
+////// Appel de l'API  /////////////////////////////////////////////////////////////////////////
+
 const api = fetch("http://localhost:3000/api/furniture/");
+
+
+////// et affichage de son contenu en injectant HTML via Javascript/////////////////////////////
 
 api
   .then((getData) => {
