@@ -50,4 +50,32 @@ var newTr = document.createElement("tr");
     totalCost.innerHTML += total;
 
 
+////// Envoi des données panier et formulaire vers API //////////////////////
+
+
+
+
+async function fetchPost() {
+  const response = await fetch('http://localhost:3000/api/furniture/order', {
+   method: "POST",
+     })
+     if (!response.ok) {
+    console.log('an error has occured');
+  }
+}
+
+  fetchPost
+();
+ 
+     
+
+
+
+
+  
+
+
+
+
+
 

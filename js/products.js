@@ -13,7 +13,7 @@ const displayImage = document.getElementById("Image");
 const displayDescription = document.getElementById("Description");
 const displayVarnish = document.getElementById("Varnish");
 
-const promise01 = fetch("http://localhost:3000/api/furniture/" + id);
+const promise01 = fetch('http://localhost:3000/api/furniture/' + id);
 promise01
   .then((getData) => {
     return getData.json();
@@ -66,7 +66,7 @@ promise01
             price: apiFurniture.price,
             quantity: 1,
           })
-        );
+        );                                                                                                
       }
     };
   });
