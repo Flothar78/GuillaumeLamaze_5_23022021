@@ -1,4 +1,5 @@
 
+
 let total = 0;
 
 
@@ -51,26 +52,39 @@ var newTr = document.createElement("tr");
 
 
 ////// Envoi des données panier et formulaire vers API //////////////////////
+function sendOrder () {
+const contacts = {
+   firstName: document.querySelector('#inputFirstName').value,
+   lastName: document.querySelector('#inputLastName').value,
+   address:  document.querySelector('#inputAddress').value,
+   address2: document.querySelector('#inputAddress2').value,
+   city: document.querySelector('#inputCity').value,
+   eMail: document.querySelector('#inputEmail4').value,
+    }
 
+let products = Object.keys(localStorage);
 
+console.log(contacts);
+console.log(products);
 
-
-async function fetchPost() {
-  const response = await fetch('http://localhost:3000/api/furniture/order', {
-   method: "POST",
-     })
-     if (!response.ok) {
-    console.log('an error has occured');
-  }
+ const sendCart = () => {
+      contacts, products 
 }
 
-  fetchPost
-();
- 
-     
+let orderContent = fetch('http://localhost:3000/api/furniture/order', {
+   method: "POST",
+   headers: {
+     "Content-Type": "application/json",
+      },
+   body: JSON.stringify(sendCart)
+     })
+     .then(response => response.text())
+     .then(orderContent => JSON.parse(orderContent))
 
+return orderContent
+}
 
-
+sendOrder ();
 
   
 
