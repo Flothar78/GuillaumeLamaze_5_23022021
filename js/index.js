@@ -1,15 +1,14 @@
-
-////// Appel de l'API  /////////////////////////////////////////////////////////////////////////
-
+/////// Appel de l'API  /////////////////////////////////////////////////////////////////////////
 const api = fetch("http://localhost:3000/api/furniture/");
 
-
-////// et affichage de son contenu en injectant HTML via Javascript/////////////////////////////
-
+////// Récuperation du fichier JSON avec données de l'API ///////////////////////////////////////
 api
   .then((getData) => {
     return getData.json();
   })
+
+  ////// Création et injection de code HTML avec chaque clé API rattachée à sa balise ///////////
+
   .then((displayData) => {
     for (var i = 0; i < displayData.length; i++) {
       var newDiv = document.createElement("div");
