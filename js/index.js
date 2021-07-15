@@ -8,7 +8,6 @@ api
   })
 
   ////// Création et injection de code HTML avec chaque clé API rattachée à sa balise ///////////
-
   .then((displayData) => {
     for (var i = 0; i < displayData.length; i++) {
       var newDiv = document.createElement("div");

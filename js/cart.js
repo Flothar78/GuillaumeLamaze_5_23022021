@@ -53,7 +53,10 @@ for (let i = 0; i < localStorage.length; i++) {
 
 totalCost.innerHTML += total;
 
-////// Envoi des données panier et formulaire vers API //////////////////////
+////// Envoi des données panier et formulaire vers API ///////////////////////////////////////////////////
+
+document.querySelector("#placeOrder").onclick = sendOrder();
+
 function sendOrder() {
   const contacts = {
     firstName: document.querySelector("#inputFirstName").value,
@@ -68,22 +71,17 @@ function sendOrder() {
 
   console.log(contacts);
   console.log(products);
-
-  const sendCart = () => {
-    contacts, products;
-  };
+  console.log(sendOrder);
 
   let orderContent = fetch("http://localhost:3000/api/furniture/order", {
     method: "POST",
+    body: JSON.stringify(contacts, products),
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(sendCart),
   })
     .then((response) => response.text())
     .then((orderContent) => JSON.parse(orderContent));
 
   return orderContent;
 }
-
-sendOrder();
