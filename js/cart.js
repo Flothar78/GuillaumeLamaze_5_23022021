@@ -1,12 +1,11 @@
+ 
+ let total = 0;
+ 
 
+ ////// Fonction pour créer les lignes dans le tableau HTML du panier en fonction du contenu du Local Storage //////////////////////////////////////////////
 
-let total = 0;
-
-
-////// Création de lignes dans le tableau HTML en fonction du contenu du Local Storage //////////////////////////////////////////////
-
-function createRow() {
-var newTr = document.createElement("tr");
+ function createRow() {
+   var newTr = document.createElement("tr");
    var appendTr = document.getElementById("appendTr");
    appendTr.append(newTr);
    newTr.innerHTML =
@@ -15,45 +14,53 @@ var newTr = document.createElement("tr");
    '<td class="choiceQuantity"></td>' +
    '<td class="choiceCost"></td>' +
    '</tr>';    
+ }  
+
+
+////// Fonction pour remplir les lignes du tableau HTML du panier en fonction du contenu du Local Storage ////////////////////////////////////
+
+ function Product (x,y,z,i) {
+   var nameCart = document.querySelectorAll('.choiceName')[i];
+   var priceCart = document.querySelectorAll('.choicePrice')[i];
+   var quantityCart = document.querySelectorAll('.choiceQuantity')[i];
+   var costCart = document.querySelectorAll('.choiceCost')[i];
+   
+   nameCart.innerHTML += JSON.parse(localStorage.getItem(localStorage.key(i)))[x];
+   priceCart.innerHTML += JSON.parse(localStorage.getItem(localStorage.key(i)))[y]/100;
+   quantityCart.innerHTML += JSON.parse(localStorage.getItem(localStorage.key(i)))[z];
+   costCart.innerHTML = priceCart.innerHTML * quantityCart.innerHTML;
 }
 
-
-
+   ////// Boucle FOR pour créer le nombre de lignes du panier selon le nombre d'articles ////////////////
    for (let i = 0 ; i < localStorage.length ; i++) {
-    
+
+    ////// Appel de la fonction de création des lignes ////////////////////////////
     createRow();
+ 
+    ////// Appel de la fonction de remplissage des lignes /////////////////////////
+    Product('name','price','quantity',i);
     
 
-    ////// Remplissage des lignes du tableau HTML du panier en fonction du contenu du Local Storage ////////////////////////////////////
- 
-    var nameProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).name;
-    var nameCart = document.querySelectorAll('.choiceName')[i];
-    nameCart.innerHTML += nameProduct;  
-
-    var priceProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).price/100;
-    var priceCart = document.querySelectorAll('.choicePrice')[i];
-    priceCart.innerHTML += priceProduct;
-
-    var quantityProduct = JSON.parse(localStorage.getItem(localStorage.key(i))).quantity;
-    var quantityCart = document.querySelectorAll('.choiceQuantity')[i];
-    quantityCart.innerHTML += quantityProduct;
-   
+    ////// Produit du prix de chaque article par la quantité de chaque article /////////////////////////////
     var costCart = document.querySelectorAll('.choiceCost')[i];
-
-    costCart.innerHTML = priceCart.innerHTML * quantityCart.innerHTML;
-
-    var totalCost = document.querySelector('#totalCost');
-
     var stringNumber = costCart.innerHTML;
     var value = parseInt(stringNumber);
+    
+   
+    ////// Somme des produits de chaque ligne pour calcul du montant total //////////////////////////////////
     total += value;
+    var totalCost = document.querySelector('#totalCost');
+    
    }
-    totalCost.innerHTML += total;
+  totalCost.innerHTML += total;
 
 
-////// Envoi des données panier et formulaire vers API //////////////////////
-function sendOrder () {
-const contacts = {
+
+
+  ////// Envoi des données panier et formulaire vers API //////////////////////
+  function sendOrder () {
+
+  const contacts = {
    firstName: document.querySelector('#inputFirstName').value,
    lastName: document.querySelector('#inputLastName').value,
    address:  document.querySelector('#inputAddress').value,
@@ -62,16 +69,16 @@ const contacts = {
    eMail: document.querySelector('#inputEmail4').value,
     }
 
-let products = Object.keys(localStorage);
+  let products = Object.keys(localStorage);
 
-console.log(contacts);
-console.log(products);
+  console.log(contacts);
+  console.log(products);
 
  const sendCart = () => {
       contacts, products 
-}
+  }
 
-let orderContent = fetch('http://localhost:3000/api/furniture/order', {
+ let orderContent = fetch('http://localhost:3000/api/furniture/order', {
    method: "POST",
    headers: {
      "Content-Type": "application/json",
@@ -81,15 +88,12 @@ let orderContent = fetch('http://localhost:3000/api/furniture/order', {
      .then(response => response.text())
      .then(orderContent => JSON.parse(orderContent))
 
-return orderContent
+  return orderContent
 }
 
 sendOrder ();
 
   
-
-
-
 
 
 
