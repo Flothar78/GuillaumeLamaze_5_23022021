@@ -61,6 +61,7 @@ document.getElementById("placeOrder").onclick = function (e) {
 };
 
 function sendOrder() {
+  ////// Constructionde l'objet contact requis///////////////////////////////////////////////////////////
   const contacts = {
     firstName: document.querySelector("#inputFirstName").value,
     lastName: document.querySelector("#inputLastName").value,
@@ -68,15 +69,17 @@ function sendOrder() {
     city: document.querySelector("#inputCity").value,
     email: document.querySelector("#inputEmail4").value,
   };
+  ////// Construction de l'array du Panier /////////////////////////////////////////////////////////////
   let products = [];
+  ////// Récupèration des Id Produits sous forme d'un array (1 Id = plusieurs articles) /////////////////////////////////////////////
   let keys = Object.keys(localStorage);
+  ////// Ajout des Id Produits dans le nouveau array du Panier (1 Id = 1 article) ////////////////////////////////////////////////////
   for (let key of keys) {
     for (let i = 0; i < JSON.parse(localStorage[key]).quantity; i++) {
       products.push(key);
     }
   }
-  console.log(contacts);
-  console.log(products);
+  ////// Envoi des données contact et product à l'API ////////////////////////////////////////////////////////////////
   let orderContent = fetch("http://localhost:3000/api/furniture/order", {
     method: "POST",
     body: JSON.stringify({ contact: contacts, products: products }),
@@ -84,6 +87,7 @@ function sendOrder() {
       "Content-Type": "application/json",
     },
   })
+    ////////////// JE SAIS PAS ENCORE /////////////////////////////////////////////////
     .then((response) => response.text())
     .then((orderContent) => JSON.parse(orderContent));
 
