@@ -55,27 +55,31 @@ totalCost.innerHTML += total;
 
 ////// Envoi des données panier et formulaire vers API ///////////////////////////////////////////////////
 
-document.querySelector("#placeOrder").onclick = sendOrder();
+document.getElementById("placeOrder").onclick = function (e) {
+  e.preventDefault();
+  sendOrder();
+};
 
 function sendOrder() {
   const contacts = {
     firstName: document.querySelector("#inputFirstName").value,
     lastName: document.querySelector("#inputLastName").value,
     address: document.querySelector("#inputAddress").value,
-    address2: document.querySelector("#inputAddress2").value,
     city: document.querySelector("#inputCity").value,
-    eMail: document.querySelector("#inputEmail4").value,
+    email: document.querySelector("#inputEmail4").value,
   };
-
-  let products = Object.keys(localStorage);
-
+  let products = [];
+  let keys = Object.keys(localStorage);
+  for (let key of keys) {
+    for (let i = 0; i < JSON.parse(localStorage[key]).quantity; i++) {
+      products.push(key);
+    }
+  }
   console.log(contacts);
   console.log(products);
-  console.log(sendOrder);
-
   let orderContent = fetch("http://localhost:3000/api/furniture/order", {
     method: "POST",
-    body: JSON.stringify(contacts, products),
+    body: JSON.stringify({ contact: contacts, products: products }),
     headers: {
       "Content-Type": "application/json",
     },

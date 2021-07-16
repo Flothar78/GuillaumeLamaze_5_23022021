@@ -51,7 +51,7 @@
       </div>
     </div>
     <div class="container">
-      <form action="http://localhost:3000/api/furniture/order" class="row g-3" id="formElem">
+      <form class="row g-3" id="formElem">
         <div class="col-md-6">
           <label for="inputFirstName" class="form-label">First Name</label>
           <input type="text" class="form-control" id="inputFirstName" required pattern="[a-zA-Z ']{1,100}" />
@@ -63,11 +63,6 @@
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
           <input type="text" class="form-control" id="inputAddress" placeholder="N° et Nom de rue" required
-            pattern="[a-zA-Z0-9 ',/]{1,100}" />
-        </div>
-        <div class="col-12">
-          <label for="inputAddress2" class="form-label">Address 2</label>
-          <input type="text" class="form-control" id="inputAddress2" placeholder="N° d'entrée, étage, porte"
             pattern="[a-zA-Z0-9 ',/]{1,100}" />
         </div>
         <div class="col-md-6">
