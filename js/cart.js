@@ -59,7 +59,6 @@ document.getElementById("placeOrder").onclick = function (e) {
   e.preventDefault();
   sendOrder();
 };
-
 function sendOrder() {
   ////// Constructionde l'objet contact requis///////////////////////////////////////////////////////////
   const contacts = {
@@ -73,7 +72,7 @@ function sendOrder() {
   let products = [];
   ////// Récupèration des Id Produits sous forme d'un array (1 Id = plusieurs articles) /////////////////////////////////////////////
   let keys = Object.keys(localStorage);
-  ////// Ajout des Id Produits dans le nouveau array du Panier (1 Id = 1 article) ////////////////////////////////////////////////////
+  ////// Ajout des Id Produits dans le nouveau array product (1 Id = 1 article) ////////////////////////////////////////////////////
   for (let key of keys) {
     for (let i = 0; i < JSON.parse(localStorage[key]).quantity; i++) {
       products.push(key);
