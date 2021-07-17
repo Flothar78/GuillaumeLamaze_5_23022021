@@ -50,7 +50,6 @@ for (let i = 0; i < localStorage.length; i++) {
   total += value;
   var totalCost = document.querySelector("#totalCost");
 }
-
 totalCost.innerHTML += total;
 
 ////// Envoi des données panier et formulaire vers API ///////////////////////////////////////////////////
@@ -60,7 +59,7 @@ document.getElementById("placeOrder").onclick = function (e) {
   sendOrder();
 };
 function sendOrder() {
-  ////// Constructionde l'objet contact requis///////////////////////////////////////////////////////////
+  ////// Construction de l'objet contact ///////////////////////////////////////////////////////////
   const contacts = {
     firstName: document.querySelector("#inputFirstName").value,
     lastName: document.querySelector("#inputLastName").value,
@@ -72,7 +71,7 @@ function sendOrder() {
   let products = [];
   ////// Récupèration des Id Produits sous forme d'un array (1 Id = plusieurs articles) /////////////////////////////////////////////
   let keys = Object.keys(localStorage);
-  ////// Ajout des Id Produits dans le nouveau array product (1 Id = 1 article) ////////////////////////////////////////////////////
+  ////// Envoi de ces Id Produits dans le nouveau array product (1 Id = 1 article) ////////////////////////////////////////////////////
   for (let key of keys) {
     for (let i = 0; i < JSON.parse(localStorage[key]).quantity; i++) {
       products.push(key);
@@ -88,7 +87,8 @@ function sendOrder() {
   })
     ////////////// JE SAIS PAS ENCORE /////////////////////////////////////////////////
     .then((response) => response.text())
-    .then((orderContent) => JSON.parse(orderContent));
+    .then((orderContent) => JSON.parse(orderContent))
 
+    .then((json) => console.log(json));
   return orderContent;
 }
