@@ -52,11 +52,11 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 totalCost.innerHTML += total;
 
-////// Envoi des données panier et formulaire vers API ///////////////////////////////////////////////////
-
 document.getElementById("placeOrder").onclick = function (e) {
   e.preventDefault();
   sendOrder();
+  var prixTotal = document.querySelector("#prixTotal");
+  prixTotal.innerHTML += total;
 };
 function sendOrder() {
   ////// Construction de l'objet contact ///////////////////////////////////////////////////////////
@@ -88,7 +88,6 @@ function sendOrder() {
     ////////////// JE SAIS PAS ENCORE /////////////////////////////////////////////////
     .then((response) => response.text())
     .then((orderContent) => JSON.parse(orderContent))
-
     .then((json) => console.log(json));
   return orderContent;
 }
