@@ -65,6 +65,7 @@ function sendOrder() {
     city: document.querySelector("#inputCity").value,
     email: document.querySelector("#inputEmail4").value,
   };
+
   ////// Construction de l'array du Panier /////////////////////////////////////////////////////////////
   let products = [];
   ////// Récupèration des Id Produits sous forme d'un array (1 Id = plusieurs articles) /////////////////////////////////////////////
@@ -90,9 +91,7 @@ function sendOrder() {
     ////// Envoi cout total vers local storage ///////////////////////////////////////////////////////////////////
     .then(localStorage.setItem("totalCost", JSON.stringify(total)))
     ////// Envoi order Id vers local storage //////////////////////////////////////////////////////////////////////
-    .then((json) =>
-      localStorage.setItem("orderID", JSON.stringify(json.orderId))
-    )
+    .then((json) => localStorage.setItem("orderID", json.orderId))
     ////// Ouverture de la page de confiramtion de commande ////////////////////////////////////////////////////////
     .then(window.open("confirmation.html"));
 }

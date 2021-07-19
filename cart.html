@@ -50,29 +50,31 @@
         </div>
       </div>
     </div>
-
     <div class="container">
       <form class="row g-3" id="formElem">
         <div class="col-md-6">
           <label for="inputFirstName" class="form-label">First Name</label>
-          <input type="text" class="form-control" id="inputFirstName" required pattern="[a-zA-Z ']{1,100}" />
+          <input type="search" id="inputFirstName" pattern="[a-zA-Z ']{1,100}" required
+            title="Ne sont acceptées que les lettres" />
         </div>
         <div class="col-md-6">
           <label for="inputLastName" class="form-label">Last Name</label>
-          <input type="text" class="form-control" id="inputLastName" required pattern="[a-zA-Z ']{1,100}" />
+          <input type="search" id="inputLastName" pattern="[a-zA-Z ']{1,100}" required
+            title="Ne sont acceptées que les lettres" />
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="N° et Nom de rue" required
-            pattern="[a-zA-Z0-9 ',/]{1,100}" />
+          <input type="search" id="inputAddress" placeholder="N° et Nom de rue" pattern="[a-zA- Z0-9 ',/]{1,100}"
+            required title="Ne sont acceptés que les chiffres et les lettres" />
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" required pattern="[a-zA-Z0-9 ',/]{1,100}" />
+          <input type="search" id="inputCity" pattern="[a-zA-Z0-9 ',/]{1, 100}" required title="Ne sont acceptés que les chiffres, les lettres et les symboles ' , / />
         </div>
-        <div class="col-md-6">
+        <div class=" col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" required pattern="[a-zA-Z0-9 ',/@.]{1,100}" />
+          <input type="email" id="inputEmail4" pattern="[a-zA-Z0-9 ' ,/@.]{ 1,100}" required
+            title="Ne sont acceptées que les chiffres, les lettres et les symboles @ , / et ." />
         </div>
         <div class="col-12">
           <button type="submit" id="placeOrder" class="btn btn-primary">

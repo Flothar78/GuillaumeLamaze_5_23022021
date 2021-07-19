@@ -41,7 +41,7 @@ promise01
 
     ////// Mise en place du local storage selon click du bouton Ajouter au panier //////////////
     const sentCart = document.getElementById("cartItem");
-    sentCart.onclick = function () {
+    sentCart.onclick = function onClick() {
       let addCart = JSON.parse(localStorage.getItem(apiFurniture._id));
 
       ////// Si le panier n'est pas vide, ajout d'un produit ///////////////////////////////////
