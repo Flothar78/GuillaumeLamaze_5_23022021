@@ -55,8 +55,6 @@ totalCost.innerHTML += total;
 document.getElementById("placeOrder").onclick = function (e) {
   e.preventDefault();
   sendOrder();
-  var prixTotal = document.querySelector("#prixTotal");
-  prixTotal.innerHTML += total;
 };
 function sendOrder() {
   ////// Construction de l'objet contact ///////////////////////////////////////////////////////////
@@ -78,16 +76,23 @@ function sendOrder() {
     }
   }
   ////// Envoi des données contact et product à l'API ////////////////////////////////////////////////////////////////
-  let orderContent = fetch("http://localhost:3000/api/furniture/order", {
+  fetch("http://localhost:3000/api/furniture/order", {
     method: "POST",
     body: JSON.stringify({ contact: contacts, products: products }),
     headers: {
       "Content-Type": "application/json",
     },
   })
-    ////////////// JE SAIS PAS ENCORE /////////////////////////////////////////////////
-    .then((response) => response.text())
-    .then((orderContent) => JSON.parse(orderContent))
-    .then((json) => console.log(json));
-  return orderContent;
+    /////// Récuperation des données renvoyées par le serveur ////////////////////////////////////////////////////////////////////////////////
+    .then((res) => {
+      return res.json();
+    })
+    ////// Envoi cout total vers local storage ///////////////////////////////////////////////////////////////////
+    .then(localStorage.setItem("totalCost", JSON.stringify(total)))
+    ////// Envoi order Id vers local storage //////////////////////////////////////////////////////////////////////
+    .then((json) =>
+      localStorage.setItem("orderID", JSON.stringify(json.orderId))
+    )
+    ////// Ouverture de la page de confiramtion de commande ////////////////////////////////////////////////////////
+    .then(window.open("confirmation.html"));
 }
