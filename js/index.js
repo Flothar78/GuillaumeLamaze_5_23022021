@@ -6,7 +6,7 @@ api
   .then((getData) => {
     return getData.json();
   })
-  ////// Création et injection de code HTML avec chaque clé API rattachée à sa balise ///////////
+  ////// Création et injection de code HTML où chaque propriété de l'article s'affiche dans la balise html dédiée ///////////
   .then((displayData) => {
     for (var i = 0; i < displayData.length; i++) {
       var newDiv = document.createElement("div");

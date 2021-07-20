@@ -1,7 +1,6 @@
 let total = 0;
 
 ////// Fonction pour créer les lignes dans le tableau HTML du panier en fonction du contenu du Local Storage //////////////////////////////////////////////
-
 function createRow() {
   var newTr = document.createElement("tr");
   var appendTr = document.getElementById("appendTr");
@@ -15,7 +14,6 @@ function createRow() {
 }
 
 ////// Fonction pour remplir les lignes du tableau HTML du panier en fonction du contenu du Local Storage ////////////////////////////////////
-
 function Product(x, y, z, i) {
   var nameCart = document.querySelectorAll(".choiceName")[i];
   var priceCart = document.querySelectorAll(".choicePrice")[i];
@@ -30,18 +28,20 @@ function Product(x, y, z, i) {
   quantityCart.innerHTML += JSON.parse(
     localStorage.getItem(localStorage.key(i))
   )[z];
+  ////// Produit du prix par quantité pour chaque article /////////////////////////////////////////////
   costCart.innerHTML = priceCart.innerHTML * quantityCart.innerHTML;
 }
 
-////// Boucle FOR pour créer le nombre de lignes du panier selon le nombre d'articles ////////////////
+////// Boucle FOR pour créer et remplir les lignes du panier selon le nombre d'articles ////////////////
 for (let i = 0; i < localStorage.length; i++) {
   ////// Appel de la fonction de création des lignes ////////////////////////////
+
   createRow();
 
   ////// Appel de la fonction de remplissage des lignes /////////////////////////
   Product("name", "price", "quantity", i);
 
-  ////// Produit du prix de chaque article par la quantité de chaque article /////////////////////////////
+  ////// Choix de la cellule dans le tableau html pour l'affichage du produit par article /////////////////////////////
   var costCart = document.querySelectorAll(".choiceCost")[i];
   var stringNumber = costCart.innerHTML;
   var value = parseInt(stringNumber);
@@ -52,12 +52,13 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 totalCost.innerHTML += total;
 
+////// Le click du bouton du panier lance la construction et l'envoi des données vers l'API /////////////////
 document.getElementById("placeOrder").onclick = function (e) {
   e.preventDefault();
   sendOrder();
 };
 function sendOrder() {
-  ////// Construction de l'objet contact ///////////////////////////////////////////////////////////
+  ////// Construction de l'objet contact ///////////////////////////////////////////////////////////////////
   const contacts = {
     firstName: document.querySelector("#inputFirstName").value,
     lastName: document.querySelector("#inputLastName").value,
@@ -66,11 +67,11 @@ function sendOrder() {
     email: document.querySelector("#inputEmail4").value,
   };
 
-  ////// Construction de l'array du Panier /////////////////////////////////////////////////////////////
+  ////// Construction de l'array product /////////////////////////////////////////////////////////////////////////////
   let products = [];
-  ////// Récupèration des Id Produits sous forme d'un array (1 Id = plusieurs articles) /////////////////////////////////////////////
+  ////// Récupèration des Id Produits sous forme d'un array créé automatiquement (1 Id = plusieurs articles) /////////////////////////////////////////////
   let keys = Object.keys(localStorage);
-  ////// Envoi de ces Id Produits dans le nouveau array product (1 Id = 1 article) ////////////////////////////////////////////////////
+  ////// Mise en place de ces Id Produits dans le array product (1 Id = 1 article) ////////////////////////////////////////////////////
   for (let key of keys) {
     for (let i = 0; i < JSON.parse(localStorage[key]).quantity; i++) {
       products.push(key);
