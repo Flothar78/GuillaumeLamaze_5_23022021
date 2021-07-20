@@ -54,8 +54,13 @@ totalCost.innerHTML += total;
 
 ////// Le click du bouton du panier lance la construction et l'envoi des données vers l'API /////////////////
 document.getElementById("placeOrder").onclick = function (e) {
-  e.preventDefault();
-  sendOrder();
+  let form = document.getElementById("formElem");
+  if (!form.checkValidity()) {
+    return;
+  } else {
+    e.preventDefault();
+    sendOrder();
+  }
 };
 function sendOrder() {
   ////// Construction de l'objet contact ///////////////////////////////////////////////////////////////////
