@@ -88,10 +88,10 @@ function sendOrder() {
     .then((res) => {
       return res.json();
     })
-    ////// Envoi cout total vers local storage ///////////////////////////////////////////////////////////////////
-    .then(localStorage.setItem("totalCost", JSON.stringify(total)))
     ////// Envoi order Id vers local storage //////////////////////////////////////////////////////////////////////
     .then((json) => localStorage.setItem("orderID", json.orderId))
+    ////// Envoi cout total vers local storage ///////////////////////////////////////////////////////////////////
+    .then(localStorage.setItem("totalCost", JSON.stringify(total)))
     ////// Ouverture de la page de confiramtion de commande ////////////////////////////////////////////////////////
     .then(window.open("confirmation.html"));
 }
