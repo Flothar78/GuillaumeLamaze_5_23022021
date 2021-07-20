@@ -26,7 +26,7 @@ promise01
     let txtDescription = apiFurniture.description;
     let txtVarnish = apiFurniture.varnish;
 
-    ////// Affichage des données API dans les bonnes balises HTML ///////////////////////////
+    ////// Affichage des données API dans les balises HTML ///////////////////////////
     displayName.innerHTML = txtName;
     displayPrice.innerHTML = txtPrice;
     displayDescription.innerHTML = txtDescription;

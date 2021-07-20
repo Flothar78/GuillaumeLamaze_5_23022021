@@ -54,23 +54,23 @@
       <form class="row g-3" id="formElem">
         <div class="col-md-6">
           <label for="inputFirstName" class="form-label">First Name</label>
-          <input type="search" id="inputFirstName" pattern="[a-zA-Z ']{3,30}" required
-            title="Ne sont acceptées que les lettres" />
+          <input type="search" id="inputFirstName" pattern="[a-zA-Z ']{3,50}" required
+            title="Entre 3 et 50 lettres. Pas de chiffres, ni de symboles." />
         </div>
         <div class="col-md-6">
           <label for="inputLastName" class="form-label">Last Name</label>
-          <input type="search" id="inputLastName" pattern="[a-zA-Z ']{3,30}" required
-            title="Ne sont acceptées que les lettres" />
+          <input type="search" id="inputLastName" pattern="[a-zA-Z ']{3,50}" required
+            title="Entre 3 et 50 lettres. Pas de chiffres, ni de symboles." />
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
-          <input type="search" id="inputAddress" placeholder="N° et Nom de rue" pattern="[a-zA- Z0-9 ',/]{3,100}"
-            required title="Ne sont acceptés que les chiffres et les lettres" />
+          <input type="search" id="inputAddress" placeholder="N° et Nom de rue" pattern="[a-zA- Z0-9]{3,100}" required
+            title="Ne sont acceptés que les chiffres et les lettres." />
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City</label>
-          <input type="search" id="inputCity" pattern="[a-zA-Z0-9 ',/]{1, 50}" required
-            title="Ne sont acceptés que les chiffres, les lettres et les symboles ' , /" />
+          <input type="search" id="inputCity" pattern="[a-zA-Z0-9 ']{1, 50}" required
+            title="Ne sont acceptés que les chiffres, les lettres et le symbole ' " />
         </div>
         <div class=" col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
