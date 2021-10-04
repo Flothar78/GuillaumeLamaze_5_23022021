@@ -1,3 +1,5 @@
+![js](\images\js.png)
+
 Le projet Orinoco est un site de e_commerce.
 
 Il contient 4 pages html liées entre elles.
