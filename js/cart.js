@@ -1,4 +1,4 @@
-let total = 0;
+var total = 0;
 
 ////// Fonction pour créer les lignes dans le tableau HTML du panier en fonction du contenu du Local Storage //////////////////////////////////////////////
 function createRow() {
