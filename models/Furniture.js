@@ -60,11 +60,11 @@ const furnitures = [
 ]
 
 exports.find = () => {
-  return new Promise((resolve, reject) => resolve(JSON.parse(JSON.stringify(furnitures))));
+  return new Promise((resolve) => resolve(JSON.parse(JSON.stringify(furnitures))));
 }
 
 exports.findById = (id) => {
-  return new Promise((resolve, reject) =>
+  return new Promise((resolve) =>
     resolve(JSON.parse(JSON.stringify(furnitures)).find(furniture =>
       furniture._id == id)
     )
