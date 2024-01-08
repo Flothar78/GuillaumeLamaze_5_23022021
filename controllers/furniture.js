@@ -1,7 +1,7 @@
 const uuid = require('uuid/v1');
 const Furniture = require('../models/Furniture');
 
-exports.getAllFurniture = (req, res, next) => {
+exports.getAllFurniture = (req, res) => {
   Furniture.find().then(
     (furniture) => {
       const mappedFurniture = furniture.map((item) => {
@@ -17,7 +17,7 @@ exports.getAllFurniture = (req, res, next) => {
   );
 };
 
-exports.getOneFurniture = (req, res, next) => {
+exports.getOneFurniture = (req, res) => {
   Furniture.findById(req.params.id).then(
     (furniture) => {
       if (!furniture) {
@@ -46,7 +46,7 @@ exports.getOneFurniture = (req, res, next) => {
  * products: [string] <-- array of product _id
  *
  */
-exports.orderFurniture = (req, res, next) => {
+exports.orderFurniture = (req, res) => {
   if (!req.body.contact ||
     !req.body.contact.firstName ||
     !req.body.contact.lastName ||
